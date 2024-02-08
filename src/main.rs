@@ -1,9 +1,7 @@
-// use std::cell::RefCell;
 mod transaction;
 mod block;
 mod blockchain;
 use blockchain::Blockchain;
-// use block::Block;
 
 fn main() {
     // Instantiate the Blockchain
@@ -13,7 +11,8 @@ fn main() {
     blockchain.new_transaction("Alice", "Bob", 10);
 
     // Mine the block
-    let last_block = blockchain.last_block();
+    let last_rc_block = blockchain.last_block();
+    let last_block = last_rc_block.borrow();
     let last_proof = last_block.proof;
     let proof = blockchain.proof_of_work(last_proof);
 
