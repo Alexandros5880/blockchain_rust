@@ -5,6 +5,10 @@ use blockchain::Blockchain;
 
 fn main() {
 
+    /*
+        Mining creates new blocks
+     */
+
     // Instantiate the Blockchain
     // Block 1
     let mut blockchain = Blockchain::new();
